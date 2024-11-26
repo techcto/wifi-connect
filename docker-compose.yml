@@ -1,0 +1,11 @@
+services:
+  ui:
+    build:
+      context: .
+      target: dev
+      dockerfile: ./Dockerfile.ui
+    volumes:
+      - ./ui/src:/app/src
+    ports:
+      - '3000:3000'
+    restart: always
