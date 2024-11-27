@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import logo from '../img/logo.svg';
 import { Navbar, Provider, Container } from 'rendition';
 import { NetworkInfoForm } from './NetworkInfoForm';
