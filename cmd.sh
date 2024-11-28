@@ -7,7 +7,10 @@ init(){
     # git submodule init
     cargo update
     cargo generate-lockfile
-    cargo install
+}
+
+build(){
+    cargo install --root $PWD
 }
 
 run(){
