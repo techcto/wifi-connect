@@ -1,3 +1,23 @@
-# cargo update redoes all version resolution, picking newer versions of dependencies.
-# cargo generate-lockfile also redoes all version resolution. (I'm not actually sure how it differs from update)
-# cargo build/check/test fixes the versions of the crates in your workspace and does nothing else. (when I tried it I saw it only modified a single line in Cargo.lock)
+#!/bin/bash
+
+export $(egrep -v '^#' .env | xargs)
+args=("$@")
+
+init(){
+    # git submodule init
+    cargo update
+    cargo generate-lockfile
+    cargo install
+}
+
+run(){
+    /root/.cargo/bin/wifi-connect
+}
+
+tag(){
+    VERSION="${args[1]}"
+    git tag -a v${VERSION} -m ".1"
+    git push --tags
+}
+
+$*

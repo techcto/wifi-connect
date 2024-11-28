@@ -8,10 +8,11 @@ services:
       dockerfile: ./devops/docker/Dockerfile
     environment:
       APP_ENV: ${APP_ENV}
-    cap_add:
-      - NET_ADMIN
+    cap_add: 
+      - SYS_ADMIN
     volumes:      
       - ./src:/usr/src/app
+      - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket
   ui:
     build:
       context: .

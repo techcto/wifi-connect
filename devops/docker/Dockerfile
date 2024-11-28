@@ -16,6 +16,7 @@ RUN apt-get update \
     wget \
     pkg-config \
     libdbus-1-dev \
+    network-manager \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Rust
